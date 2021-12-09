@@ -1,10 +1,7 @@
 package com.example.bookreviewapp.api
 
 import com.example.bookreviewapp.model.BestSellerDto
-import com.example.bookreviewapp.model.Book
 import com.example.bookreviewapp.model.SearchBooksDto
-import com.google.gson.JsonObject
-import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
 

@@ -16,7 +16,7 @@ object BindingAdapter {
 
         var adapter = recyclerView.adapter
         if(adapter != null) {
-            (adapter as BookAdapter).submitList(items?.filterIsInstance(Book::class.java))
+            (adapter as BookAdapter).submitList(items?.filterIsInstance(Book::class.java).orEmpty())
         }
 
 
