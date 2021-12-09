@@ -32,7 +32,6 @@ class BookAdapter :ListAdapter<Book, BookAdapter.ViewHolder>(diffUtil) {
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        Log.d("동현","onBindViewHolder : ${currentList[position]}")
         holder.bind(currentList[position])
 
     }
