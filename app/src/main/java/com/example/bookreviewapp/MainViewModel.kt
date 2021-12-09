@@ -23,23 +23,22 @@ import retrofit2.Response
 
 class MainViewModel : ViewModel() {
     private lateinit var mContext: Context
-    protected val mDispatcherDefault = Dispatchers.Default
     private var _bookList = MutableLiveData<List<Book>>()
     val bookList : LiveData<List<Book>> get() = _bookList
 
-    //var bookList = ObservableField<List<Book>>()
+    init {
+        Retrofit.setRestApiService()
+    }
 
     fun init(applicationContext: Context) {
+
         mContext = applicationContext
-        Log.d("동현","1111111111111")
         getApi()
-        Log.d("동현","22222222222222")
     }
 
     private fun getApi() = viewModelScope.launch {
-        Retrofit.setRestApiService()
         RestApiRequest.requestAsync({Retrofit.service().getBestSeller(mContext.getString(R.string.interpark_apikey))}).collect { result ->
-            Log.d("동현","result:${result}")
+            _bookList.value = result.books
         }
     }
 

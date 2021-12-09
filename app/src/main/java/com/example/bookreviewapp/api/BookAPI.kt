@@ -10,9 +10,7 @@ import retrofit2.http.Query
 
 interface BookAPI {
     @GET("/api/bestSeller.api?categoryId=100&output=json")
-    suspend fun getBestSeller(
-        @Query("key") apiKey: String
-    ) : BestSellerDto<Book>
+    suspend fun getBestSeller(@Query("key") apiKey: String) : BestSellerDto
 
     @GET("/api/search.api?output=json")
     suspend fun getBooksByName(

@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.flowOn
 object RestApiRequest {
     suspend fun <T> requestAsync(requestApi: suspend () -> T, onError: ((Throwable) -> Unit)? = null) = flow {
         Log.d("동현","requestAsync : ${requestApi}")
-        emit(requestApi)
+        emit(requestApi())
     }
         .flowOn(Dispatchers.IO)
         .catch { error ->
